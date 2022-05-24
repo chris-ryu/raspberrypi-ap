@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  wlan:
+    container_name: wlan
+    build: .
+    image: wlan
+    cap_add:
+      - NET_ADMIN
+    stop_grace_period: 2m
+    network_mode: "host"
+    volumes:
+      - ./confs/hostapd_confs/open.conf:/etc/hostapd/hostapd.conf
